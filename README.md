@@ -1,2 +1,1 @@
-# Egghead framer motion animation
-
+# Todo with animation
