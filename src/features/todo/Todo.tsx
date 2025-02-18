@@ -67,9 +67,9 @@ export default function Todo() {
     return (
         <div className={"todo-container"}>
             <motion.h1
-            // initial={{scale: 0.5, y: -200}}
-            // animate={{scale: 2, y: 0}}
-            // transition={{duration: 1, ease: "linear", type: "tween"}}
+                initial={{ scale: 0.5, y: -200 }}
+                animate={{ scale: 1, y: 0 }}
+                transition={{ duration: 1, ease: "linear", type: "tween" }}
             >
                 Todos
             </motion.h1>

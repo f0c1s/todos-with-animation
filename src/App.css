@@ -1,4 +1,5 @@
-.App {
-    margin: auto;
-    background: linear-gradient(45deg, white, silver);
+button {
+    background-color: var(--primary-color-accent);
+    border: 1px solid var(--primary-color-accent);
+    color: var(--primary-color-background);
 }
