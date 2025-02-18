@@ -29,10 +29,6 @@
     cursor: pointer;
 }
 
-.input-container {
-
-}
-
 .input-container input#text {
     width: 90%;
     margin: .3rem auto;

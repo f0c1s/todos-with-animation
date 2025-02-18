@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import "./todo.css";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 type TodoT = {
     text: string;
@@ -31,7 +31,7 @@ export default function Todo() {
             .map(_ => 97 + Math.floor(Math.random() * 26))
             .map(i => String.fromCharCode(i))
             .join('');
-        const todo = {text, id};
+        const todo = { text, id };
 
         setTodos([...todos, todo]);
         setText("");
@@ -67,9 +67,9 @@ export default function Todo() {
     return (
         <div className={"todo-container"}>
             <motion.h1
-                // initial={{scale: 0.5, y: -200}}
-                // animate={{scale: 2, y: 0}}
-                // transition={{duration: 1, ease: "linear", type: "tween"}}
+            // initial={{scale: 0.5, y: -200}}
+            // animate={{scale: 2, y: 0}}
+            // transition={{duration: 1, ease: "linear", type: "tween"}}
             >
                 Todos
             </motion.h1>
@@ -85,13 +85,13 @@ export default function Todo() {
             <div className={"input-container"}>
                 <label htmlFor={text}>
                     <input name="text"
-                           id="text"
-                           type={"text"}
-                           value={text}
-                           onChange={e => {
-                               setText(e.target.value);
-                               setShowError(false);
-                           }}/>
+                        id="text"
+                        type={"text"}
+                        value={text}
+                        onChange={e => {
+                            setText(e.target.value);
+                            setShowError(false);
+                        }} />
                 </label>
                 <div>
                     <button type="button" onClick={() => createTodo()}>Add</button>
@@ -102,14 +102,14 @@ export default function Todo() {
                     todos={todos}
                     onTodoClick={removeTodo}
                     key={"todos"}
-                    name={"todos"}/>
+                    name={"todos"} />
             }
             {removedTodos.length > 0 &&
                 <TodoList
                     todos={removedTodos}
                     onTodoClick={reAddTodo}
                     key={"removedTodos"}
-                    name={"removed-todos"}/>
+                    name={"removed-todos"} />
             }
         </div>
     );
@@ -122,16 +122,16 @@ type TodoListPropsT = {
 }
 
 function TodoList(props: TodoListPropsT) {
-    const {todos, onTodoClick, name} = props;
+    const { todos, onTodoClick, name } = props;
     return (
         <div key={`todos-${name}`}>
             <h2>{name}</h2>
             <div className={"todo-list"}>
                 {todos.map((todo: TodoT, todoIndex: number) =>
                     <TodoItem key={`todo-item-${name}-${todoIndex}`}
-                              todo={todo}
-                              onTodoClick={onTodoClick}
-                              todoIndex={todoIndex}
+                        todo={todo}
+                        onTodoClick={onTodoClick}
+                        todoIndex={todoIndex}
                     />
                 )}
             </div>
@@ -146,28 +146,28 @@ type TodoItemPropsT = {
 }
 
 function TodoItem(props: TodoItemPropsT) {
-    const {todo, onTodoClick, todoIndex} = props;
+    const { todo, onTodoClick, todoIndex } = props;
     return (
         <motion.div className={"todo"}
-                    key={todo.id}
-                    data-key={todo.id}
-                    onClick={_ => onTodoClick(todo.id)}
-                    initial={
-                        {
-                            opacity: 0,
-                            y: -100
-                        }}
-                    animate={
-                        {
-                            opacity: 1,
-                            y: 0
-                        }}
-                    transition={
-                        {
-                            duration: (todoIndex + 1) * 0.2,
-                        }}
-                    whileHover={{scale: 1.1}}
-                    whileTap={{scale: 1.2}}
+            key={todo.id}
+            data-key={todo.id}
+            onClick={_ => onTodoClick(todo.id)}
+            initial={
+                {
+                    opacity: 0,
+                    y: -100
+                }}
+            animate={
+                {
+                    opacity: 1,
+                    y: 0
+                }}
+            transition={
+                {
+                    duration: (todoIndex + 1) * 0.2,
+                }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1.2 }}
         >
             {todo.text}
         </motion.div>
